@@ -1,4 +1,4 @@
-package com.codebytes.partnerportal.validator;
+package com.codebytes.partnerportal.common.validator;
 
 import java.util.Arrays;
 import java.util.List;

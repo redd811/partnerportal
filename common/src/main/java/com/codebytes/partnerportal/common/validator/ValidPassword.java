@@ -1,4 +1,4 @@
-package com.codebytes.partnerportal.user.validator;
+package com.codebytes.partnerportal.common.validator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

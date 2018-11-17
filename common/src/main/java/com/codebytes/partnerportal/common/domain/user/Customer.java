@@ -14,7 +14,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-import com.codebytes.partnerportal.validator.ValidPassword;
+import com.codebytes.partnerportal.common.validator.ValidPassword;
 
 @Getter
 @Setter

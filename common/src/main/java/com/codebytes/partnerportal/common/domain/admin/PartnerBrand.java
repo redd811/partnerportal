@@ -1,9 +1,6 @@
 package com.codebytes.partnerportal.common.domain.admin;
 
-import com.codebytes.partnerportal.common.domain.user.Customer;
-
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

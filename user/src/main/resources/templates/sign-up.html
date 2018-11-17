@@ -75,6 +75,14 @@
                                                 	<small id="error-username" class="form-text red-text" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
 	                                            </div>
 	                                        </div>
+	                                        
+	                                        <div class="col-md-6">
+	                                            <div class="md-form mb-0">
+	                                                <input th:field="*{address}" type="text" id="address" class="form-control" aria-describedby="error-address">
+                                                	<label for="address">* Address</label>
+                                                	<small id="error-address" class="form-text red-text" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></small>
+	                                            </div>
+	                                        </div>
 	    
 	                                    </div>
 	                                    <!--Grid row-->

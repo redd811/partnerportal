@@ -3,6 +3,7 @@ package com.codebytes.partnerportal.user.service;
 import com.codebytes.partnerportal.common.domain.user.Customer;
 
 public interface CustomerService {
+	Customer findCustomerByUsername(String username);
 	boolean isUsernameExist(String username);
 	boolean isEmailExist(String email);
 	boolean isPasswordMatch(String password, String confirmPassword);

@@ -1,6 +1,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{common/template}">
 
     <head>
@@ -146,38 +147,22 @@
 			            <!--/.Accordion wrapper-->
 			
 			            <!-- Add to Cart -->
-			            <section class="color">
+			            <section class="color" sec:authorize="isAuthenticated()">
 			              <div class="mt-5">
-			                <p class="grey-text">Choose your color</p>
-			                <div class="row text-center text-md-left">
-			
-			                  <div class="col-md-4 col-12 ">
-			                    <!--Radio group-->
-			                    <div class="form-group">
-			                      <input class="form-check-input" name="group100" type="radio" id="radio100" checked="checked">
-			                      <label for="radio100" class="form-check-label dark-grey-text">Blue</label>
-			                    </div>
-			                  </div>
-			                  <div class="col-md-4">
-			                    <!--Radio group-->
-			                    <div class="form-group">
-			                      <input class="form-check-input" name="group100" type="radio" id="radio101">
-			                      <label for="radio101" class="form-check-label dark-grey-text">Orange</label>
-			                    </div>
-			                  </div>
-			                  <div class="col-md-4">
-			                    <!--Radio group-->
-			                    <div class="form-group">
-			                      <input class="form-check-input" name="group100" type="radio" id="radio102">
-			                      <label for="radio102" class="form-check-label dark-grey-text">Red</label>
-			                    </div>
-			                  </div>
-			                </div>
-			
 			                <div class="row mt-3 mb-4">
 			                  <div class="col-md-12 text-center text-md-left text-md-right">
-			                    <button class="btn btn-primary btn-rounded">
-			                      <i class="fa fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart</button>
+			                    <a th:href="@{/cart}" class="btn btn-primary btn-rounded">
+			                      <i class="fa fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart</a>
+			                  </div>
+			                </div>
+			              </div>
+			            </section>
+			            <section class="color" sec:authorize="isAnonymous()">
+			              <div class="mt-5">
+			                <div class="row mt-3 mb-4">
+			                  <div class="col-md-12 text-center text-md-left text-md-right">
+			                    <a th:href="@{/sign-in}" class="btn btn-primary btn-rounded">
+			                       Login</a>
 			                  </div>
 			                </div>
 			              </div>

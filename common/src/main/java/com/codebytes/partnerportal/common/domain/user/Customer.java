@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import com.codebytes.partnerportal.common.validator.ValidPassword;
@@ -29,20 +30,20 @@ public class Customer
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long accountId;
 	
-	@NotEmpty
+	@NotBlank
     protected String username;
 	
 	@ValidPassword
     protected String password;
 
-    @NotEmpty
+	@NotBlank
     protected String fullname;
 
-    @NotEmpty
+	@NotBlank
     protected String address;
 
     @Email
-    @NotEmpty
+    @NotBlank
     protected String email;
 
     protected String accountImageLink;

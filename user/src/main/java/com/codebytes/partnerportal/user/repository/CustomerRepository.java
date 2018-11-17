@@ -9,4 +9,5 @@ import com.codebytes.partnerportal.common.domain.user.Customer;
 public interface CustomerRepository extends CrudRepository<Customer, Long>{
 	boolean existsByUsername(String username);
 	boolean existsByEmail(String email);
+	Customer findCustomerByUsername(String username);
 }

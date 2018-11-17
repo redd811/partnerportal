@@ -40,7 +40,10 @@ public class CustomerServiceImpl implements CustomerService {
 	public String hashPassword(String password) {
 		return encoder.encode(password);
 	}
-	
-	
+
+	@Override
+	public Customer findCustomerByUsername(String username) {
+		return customerRepository.findCustomerByUsername(username);
+	}
 	
 }

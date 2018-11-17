@@ -1,29 +1,44 @@
 package com.codebytes.partnerportal.common.domain.user;
 
-import com.codebytes.partnerportal.common.domain.common.Account;
-import com.codebytes.partnerportal.common.domain.common.Address;
-import com.codebytes.partnerportal.common.domain.common.ContactDetails;
-import com.codebytes.partnerportal.common.domain.common.Name;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
-import java.util.Set;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
-@Entity
+@Setter
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
 @NoArgsConstructor
-public class Customer extends Account
+@Entity
+public class Customer
 {
-    @Builder
-    public Customer(long accountId, String username, String password,
-                    Name name,
-                    Address address,
-                    ContactDetails contactDetails,
-                    String accountImageLink, boolean enabled, String role)
-    {
-        super(accountId, username, password, name, address, contactDetails, accountImageLink, enabled, role);
-    }
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long accountId;
+
+    protected String username;
+    protected String password;
+
+    protected String fullname;
+
+    protected String address;
+
+    protected String email;
+
+    protected String accountImageLink;
+    
+    protected boolean enabled;
+
+    protected String role;
     
 }

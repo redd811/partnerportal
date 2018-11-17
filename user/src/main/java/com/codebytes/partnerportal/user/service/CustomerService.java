@@ -1,11 +1,11 @@
 package com.codebytes.partnerportal.user.service;
 
-import com.codebytes.partnerportal.common.domain.common.Account;
+import com.codebytes.partnerportal.common.domain.user.Customer;
 
-public interface AccountService {
+public interface CustomerService {
 	boolean isUsernameExist(String username);
 	boolean isEmailExist(String email);
 	boolean isPasswordMatch(String password, String confirmPassword);
-	Account saveOrUpdateUser(Account account);
+	Customer saveOrUpdateUser(Customer account);
 	String hashPassword(String password);
 }

@@ -25,8 +25,8 @@ public class SpringSecurityConfiguration {
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 			auth.jdbcAuthentication()
 				.dataSource(dataSource)
-					.usersByUsernameQuery("SELECT username, password, enabled FROM USER WHERE username = ?")
-					.authoritiesByUsernameQuery("SELECT username, role FROM USER WHERE username=? AND role='BUYER'");
+					.usersByUsernameQuery("SELECT username, password, enabled FROM CUSTOMER WHERE username = ?")
+					.authoritiesByUsernameQuery("SELECT username, role FROM CUSTOMER WHERE username=? AND role='BUYER'");
 		}
 		
 		@Override

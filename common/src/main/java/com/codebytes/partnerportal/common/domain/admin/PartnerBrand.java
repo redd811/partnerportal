@@ -1,36 +1,45 @@
 package com.codebytes.partnerportal.common.domain.admin;
 
-import com.codebytes.partnerportal.common.domain.admin.enums.AccountType;
-import com.codebytes.partnerportal.common.domain.common.Account;
-import com.codebytes.partnerportal.common.domain.common.Address;
-import com.codebytes.partnerportal.common.domain.common.ContactDetails;
-import com.codebytes.partnerportal.common.domain.common.Name;
+import com.codebytes.partnerportal.common.domain.user.Customer;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import java.util.Set;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class PartnerBrand extends Account
+public class PartnerBrand
 {
-    private final String companyName;
-    private final String brand;
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long accountId;
 
-    @Enumerated(EnumType.STRING)
-    private final AccountType accountType;
+    protected String username;
+    protected String password;
+
+    protected String fullname;
+
+    protected String address;
+
+    protected String email;
+
+    protected String accountImageLink;
     
-    @Builder
-	public PartnerBrand(long accountId, String username, String password, Name name, Address address,
-			ContactDetails contactDetails, String accountImageLink, boolean enabled, String role, String companyName,
-			String brand, AccountType accountType) {
-		super(accountId, username, password, name, address, contactDetails, accountImageLink, enabled, role);
-		this.companyName = companyName;
-		this.brand = brand;
-		this.accountType = accountType;
-	}
+    protected boolean enabled;
 
+    protected String role;
 }

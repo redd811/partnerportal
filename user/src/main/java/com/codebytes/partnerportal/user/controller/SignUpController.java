@@ -13,15 +13,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.codebytes.partnerportal.common.domain.common.Account;
 import com.codebytes.partnerportal.common.domain.user.Customer;
-import com.codebytes.partnerportal.user.service.AccountService;
+import com.codebytes.partnerportal.user.service.CustomerService;
 
 @Controller
 public class SignUpController {
 	
 	@Autowired
-	private AccountService accountService;
+	private CustomerService accountService;
 	
 	@GetMapping("/sign-up")
 	public String signUp(Model model) {
@@ -30,12 +29,12 @@ public class SignUpController {
 	}
 	
 	@PostMapping("/sign-up")
-	public String validateUser(@ModelAttribute("user") @Valid Account account,
+	public String validateUser(@ModelAttribute("user") @Valid Customer customer,
 			   BindingResult result, Model model, @RequestParam("confirmPassword") String confirmPassword) {
 		
-		boolean isUsernameExist = accountService.isUsernameExist(account.getUsername());
-		boolean isEmailExist = accountService.isEmailExist(account.getContactDetails().getEmailAddress());
-		boolean isPasswordMatch = accountService.isPasswordMatch(account.getPassword(), confirmPassword);
+		boolean isUsernameExist = accountService.isUsernameExist(customer.getUsername());
+		boolean isEmailExist = accountService.isEmailExist(customer.getEmail());
+		boolean isPasswordMatch = accountService.isPasswordMatch(customer.getPassword(), confirmPassword);
 		
 		if(isUsernameExist)
 			result.rejectValue("username", "error.username", "Username already exist");
@@ -48,10 +47,10 @@ public class SignUpController {
 			return "sign-up";
 		
 		
-		account.setPassword(accountService.hashPassword(account.getPassword()));
-		account.setRole("BUYER");;
-		account.setEnabled(true);
-		accountService.saveOrUpdateUser(account);
+		customer.setPassword(accountService.hashPassword(customer.getPassword()));
+		customer.setRole("BUYER");;
+		customer.setEnabled(true);
+		accountService.saveOrUpdateUser(customer);
 		
 		return "redirect:/sign-in?success";
 	}

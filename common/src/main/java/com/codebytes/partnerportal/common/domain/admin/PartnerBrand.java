@@ -22,18 +22,15 @@ public class PartnerBrand extends Account
 
     @Enumerated(EnumType.STRING)
     private final AccountType accountType;
-
+    
     @Builder
-    public PartnerBrand(long accountId, String username, String password,
-                        Name name,
-                        Address address,
-                        ContactDetails contactDetails,
-                        String accountImageLink, Set<String> role, String pCompanyName, String pBrand,
-                        AccountType pAccountType)
-    {
-        super(accountId, username, password, name, address, contactDetails, accountImageLink, role);
-        companyName = pCompanyName;
-        brand = pBrand;
-        accountType = pAccountType;
-    }
+	public PartnerBrand(long accountId, String username, String password, Name name, Address address,
+			ContactDetails contactDetails, String accountImageLink, boolean enabled, String role, String companyName,
+			String brand, AccountType accountType) {
+		super(accountId, username, password, name, address, contactDetails, accountImageLink, enabled, role);
+		this.companyName = companyName;
+		this.brand = brand;
+		this.accountType = accountType;
+	}
+
 }

@@ -6,12 +6,14 @@ import com.codebytes.partnerportal.common.domain.common.ContactDetails;
 import com.codebytes.partnerportal.common.domain.common.Name;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import java.util.Set;
 
 @Getter
 @Entity
+@NoArgsConstructor
 public class Customer extends Account
 {
     @Builder
@@ -19,8 +21,9 @@ public class Customer extends Account
                     Name name,
                     Address address,
                     ContactDetails contactDetails,
-                    String accountImageLink, Set<String> role)
+                    String accountImageLink, boolean enabled, String role)
     {
-        super(accountId, username, password, name, address, contactDetails, accountImageLink, role);
+        super(accountId, username, password, name, address, contactDetails, accountImageLink, enabled, role);
     }
+    
 }

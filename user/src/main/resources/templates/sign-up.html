@@ -1,0 +1,102 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/template}">
+
+    <head>
+        <title>Sign up</title>
+        <link th:href="@{/template/partnerportal-webapp/css/account.css}" rel="stylesheet"/>
+    </head>
+
+    <body>
+
+        <th:block layout:fragment="content">
+             <!--Intro Section-->
+        	<section class="view intro-2">
+                <div class="mask rgba-gradient7">
+                    <div class="container h-100 d-flex justify-content-center align-items-center">
+    
+                    <!--Grid row-->
+                    <div class="row pt-5 mt-3">
+    
+                        <!--Grid column-->
+                        <div class="col-md-12">
+    
+                            <div class="card">
+                                <div class="card-body">
+                                
+                                	<form th:action="@{/sign-up}" th:object="${user}" method="post">
+    
+	                                    <h2 class="feature-title text-center mb-5 mt-4 font-weight-bold">
+	                                        <strong>REGISTER</strong>
+	                                    </h2>
+	                                    <hr>
+	    
+	                                    <!--Grid row-->
+	                                    <div class="row">
+	    
+	                                        <!--Grid column-->
+	                                        <div class="col-md-6">
+	                                            <div class="md-form mb-0">
+	                                                <input th:field="*{fullname}" type="text" id="fullname" class="form-control" aria-describedby="error-fullname">
+                                                	<label for="fullname">* Fullname</label>
+                                                	<small id="error-fullname" class="form-text red-text" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></small>
+	                                            </div>
+	                                        </div>
+	
+	                                        <div class="col-md-6">
+	                                            <div class="md-form mb-0">
+	                                                <input th:field="*{email}" type="text" id="email" class="form-control" aria-describedby="error-company-email">
+                                                	<label for="email">* Email</label>
+                                                	<small id="email" class="form-text red-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+	                                            </div>
+	                                        </div>
+	
+	                                        <div class="col-md-6">
+	                                            <div class="md-form mb-0">
+	                                                <input th:field="*{password}" type="password" id="password" class="form-control" aria-describedby="error-password">
+                                                <label for="password">* Password</label>
+                                                <small id="error-password" class="form-text red-text" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+	                                            </div>
+	                                        </div>
+	
+	                                        <div class="col-md-6">
+	                                            <div class="md-form mb-0">
+	                                                <input type="password" id="confirm-password" name="confirmPassword" class="form-control">
+                                                	<label for="confirm-password">* Confirm Password</label>
+                                                	<small th:text="${confirmPassword}" class="form-text red-text"></small>
+	                                            </div>
+	                                        </div>
+	
+	                                        <div class="col-md-6">
+	                                            <div class="md-form mb-0">
+	                                                <input th:field="*{username}" type="text" id="username" class="form-control" aria-describedby="error-username">
+                                                	<label for="username">* Username</label>
+                                                	<small id="error-username" class="form-text red-text" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+	                                            </div>
+	                                        </div>
+	    
+	                                    </div>
+	                                    <!--Grid row-->
+	
+	                                    <div class="text-center">
+	                                            <button class="btn btn-info btn-rounded mt-3" type="submit">Sign up</button>
+	                                        </div>
+                                	</form>
+    
+                                </div>
+                            </div>
+    
+                        </div>
+                        <!--Grid column-->
+    
+                    </div>
+                    <!--Grid row-->
+    
+                </div>
+                </div>
+            </section>
+        </th:block>
+
+    </body>
+</html>

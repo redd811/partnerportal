@@ -1,4 +1,4 @@
-package com.codebytes.partnerportal.admin.configuration;
+package com.codebytes.partnerportal.partner.configuration;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

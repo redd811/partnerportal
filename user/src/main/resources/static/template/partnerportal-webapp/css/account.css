@@ -1,0 +1,33 @@
+.intro-2 {
+                background: url("http://mdbootstrap.com/img/Photos/Others/forest1.jpg")no-repeat center center;
+                background-size: cover;
+            }
+    
+            .mask.rgba-gradient7 {
+                background: -webkit-linear-gradient(98deg, rgba(22, 91, 231, 0.5), rgba(255, 32, 32, 0.5) 100%);
+                background: -webkit-gradient(linear, 98deg, from(rgba(22, 91, 231, 0.5)), to(rgba(255, 32, 32, 0.5)));
+                background: linear-gradient(to 98deg, rgba(22, 91, 231, 0.5), rgba(255, 32, 32, 0.5) 100%);
+            }
+    
+            .card {
+                background-color: rgba(255, 255, 255, 0.85);
+            }
+    
+    
+            p {
+                font-size: 0.9rem;
+                font-weight: 300;
+            }
+    
+            h4 {
+                font-size: 1.3rem;
+            }
+    
+            h6 {
+                line-height: 1.7;
+            }
+    
+            .md-form label {
+                font-size: 0.9rem;
+                font-weight: 300;
+            }

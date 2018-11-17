@@ -1,4 +1,4 @@
-package com.codebytes.partnerportal.admin;
+package com.codebytes.partnerportal.partner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

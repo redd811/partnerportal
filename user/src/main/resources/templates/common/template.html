@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
+	  xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-    <head>
-
-    	<title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">PartnerPortal</title>
-        <meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <th:block th:include="common/css :: cssFiles"/>
-
-    </head>
-    <body>
-
-	    <th:block th:include="common/topbar :: topbar" />
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="shortcut icon" type="image/png" th:href="@{/template/partnerportal-webapp/img/favicon.ico}"/>
+		<title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Plus</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+        <th:block th:include="common/css :: cssFiles" />
+	</head>
 	
-	    <th:block layout:fragment="content" />
-	
-	    <th:block th:include="common/footer :: footer" />
-	
-	    <th:block th:include="common/js :: javascriptFiles" />
-
-    </body>
+	<body class="hidden-sn white-skin animated">
+		<th:block th:include="common/topbar :: topbar" />
+		
+		<th:block layout:fragment="content" />
+		
+		<th:block th:include="common/footer :: footer" />
+		
+		<th:block th:include="common/js :: javascriptFiles"/>
+	</body>
 
 </html>

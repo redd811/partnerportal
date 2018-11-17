@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.java.Log;
 
@@ -17,9 +19,11 @@ import javax.persistence.MappedSuperclass;
 import java.util.Set;
 
 @Getter
+@Setter
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
+@NoArgsConstructor
 @Log
 @MappedSuperclass
 public abstract class Account
@@ -29,20 +33,22 @@ public abstract class Account
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected long accountId;
 
-    protected final String username;
-    protected final String password;
+    protected String username;
+    protected String password;
 
     @Embedded
-    protected final Name name;
+    protected Name name;
 
     @Embedded
-    protected final Address address;
+    protected Address address;
 
     @Embedded
-    protected final ContactDetails contactDetails;
+    protected ContactDetails contactDetails;
 
-    protected final String accountImageLink;
+    protected String accountImageLink;
+    
+    protected boolean enabled;
 
-    @ElementCollection
-    protected final Set<String> role;
+    protected String role;
+    
 }

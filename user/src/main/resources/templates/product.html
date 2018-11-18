@@ -55,16 +55,16 @@
 			          </div>
 			          <div class="col-lg-5 mr-3 text-center text-md-left">
 			            <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
-			              <strong>Sony headphones</strong>
+			              <strong th:text="${product.product.name}"></strong>
 			            </h2>
 			            <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">bestseller</span>
 			            <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
 			              <span class="red-text font-weight-bold">
-			                <strong>$49</strong>
+			                <strong th:text="${product.product.discount.discountValue}"></strong>%
 			              </span>
 			              <span class="grey-text">
 			                <small>
-			                  <s>$89</s>
+			                  &#8369;<span th:text="${product.product.price}"></span>
 			                </small>
 			              </span>
 			            </h3>

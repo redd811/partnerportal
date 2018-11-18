@@ -1,6 +1,5 @@
 package com.codebytes.partnerportal.common.domain.partner;
 
-import com.codebytes.partnerportal.validator.ValidPassword;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -31,7 +30,6 @@ public class PartnerBrand
     @NotEmpty
     protected String username;
 
-    @ValidPassword
     protected String password;
 
     @NotEmpty

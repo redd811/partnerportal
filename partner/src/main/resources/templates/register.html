@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Seller Register - PartnerPortal</title>
+    <th:block th:include="common/css :: cssFiles" />
+</head>
+
+<body>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div id="rowBackground" class="content-wrapper d-flex align-items-center auth">
+            <div class="row w-100">
+                <div class="col-lg-6 mx-auto">
+                    <div class="auth-form-light text-left p-5" style="border: 1px solid; box-shadow: 5px 10px;">
+                        <div class="text-center">
+                            <div class="brand-logo">
+                                <img th:src="@{/template/PurpleAdmin/images/linkedin_banner_image_1.png}" width="75" height="75">
+                            </div>
+                        </div>
+                        <h4>New at PartnerPortal?</h4>
+                        <h6 class="font-weight-light">Signing up is easy. It only takes a few steps...</h6>
+                        <form class="pt-3" th:action="@{/seller-sign-up}" th:object="${seller}" method="POST">
+                            <div class="form-group">
+                                <input th:field="*{fullname}" type="text" class="form-control form-control-lg" id="txtFullname" placeholder="Fullname" aria-describedby="error-fullname">
+                                <small id="error-fullname" class="form-text red-text" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <input th:field="*{username}" type="text" class="form-control form-control-lg" id="txtUsername" placeholder="Username" aria-describedby="error-username">
+                                <small id="error-username" class="form-text red-text" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <input th:field="*{email}" type="email" class="form-control form-control-lg" id="txtEmail" placeholder="Email" aria-describedby="error-company-email">
+                                <small id="error-company-email" class="form-text red-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea th:field="*{address}" class="form-control" id="txtAddress" rows="8" placeholder="Address" aria-describedby="error-address"></textarea>
+                                <small id="error-address" class="form-text red-text" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <input th:field="*{password}" type="password" class="form-control form-control-lg" id="txtPassword" placeholder="Password" aria-describedby="error-password">
+                                <small id="error-password" class="form-text red-text" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control form-control-lg" id="txtConfirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                                <small th:text="${confirmPassword}" class="form-text red-text"></small>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <label class="form-check-label text-muted">
+                                        <input type="checkbox" class="form-check-input">
+                                        I agree to all Terms & Conditions
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mt-3">
+                                <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit">REGISTER
+                                </button>
+                            </div>
+
+                            <div class="text-center mt-4 font-weight-light">
+                                Already have an account? <a th:href="@{/}" class="text-primary">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+
+<script th:src="@{/template/PurpleAdmin/vendors/js/vendor.bundle.base.js}" type="text/javascript"></script>
+<script th:src="@{/template/PurpleAdmin/vendors/js/vendor.bundle.addons.js}"></script>
+<script th:src="@{/template/PurpleAdmin/js/off-canvas.js}"></script>
+<script th:src="@{/template/PurpleAdmin/js/misc.js}"></script>
+
+</body>
+
+</html>

@@ -41,16 +41,13 @@
 										</thead>
 
 										<tbody>
-											<tr>
-												<td>
-													<img th:src="@{/template/PurpleAdmin/images/faces/face1.jpg}" class="mr-2" alt="image">
-													Product 1
-												</td>
-												<td>PHP 1,000.00</td>
-												<td>DISCOUNTABLE / NON_DISCOUNTABLE</td>
-												<td>50%</td>
-												<td>2</td>
-												<td>November 15, 2018</td>
+											<tr th:each="product : ${products.productList}">
+												<td th:text="${product.name}"></td>
+												<td th:text="${product.price}"></td>
+												<td th:text="${product.discountType}"></td>
+												<td th:text="${product.discount.discountValue}"></td>
+												<td th:text="${product.quantity}"></td>
+												<td th:text="${product.dateCreated}"></td>
 												<td>
 													<label id="btnEditProduct" class="badge badge-gradient-warning" style="cursor: pointer;">
 														<i class="mdi mdi-table-edit"></i> EDIT
@@ -183,7 +180,8 @@
 							<h4 class="card-title">Add Product</h4>
 							<br>
 
-							<form th:action="@{/}" method="POST">
+							<form th:action="@{/product/create}" th:object="${product}" method="POST">
+								<!--
 								<div class="form-group">
 									<label>Product Image</label>
 									<input type="file" name="img[]" class="file-upload-default">
@@ -194,48 +192,71 @@
 											</span>
 									</div>
 								</div>
+								-->
 
 								<div class="form-group">
 									<label for="txtProductName">Product Name</label>
-									<input type="text" class="form-control" id="txtProductName" placeholder="Enter product name...">
+									<input th:field="*{name}" type="text" class="form-control" id="txtProductName" name="" placeholder="Enter product name..." aria-describedby="error-name">
+									<small id="error-name" class="form-text red-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
 								</div>
 
 								<div class="form-group">
 									<label for="txtProductDescription">Product Description</label>
-									<textarea class="form-control" id="txtProductDescription" rows="8" placeholder="Enter product description..."></textarea>
+									<textarea th:field="*{description}" class="form-control" id="txtProductDescription" rows="8" placeholder="Enter product description..." aria-describedby="error-description"></textarea>
+									<small id="error-description" class="form-text red-text" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></small>
+								</div>
+
+								<div class="form-group">
+									<label for="txtProductBrand">Product Brand</label>
+									<input th:field="*{brand}" type="text" class="form-control" id="txtProductBrand" placeholder="Enter product brand..." aria-describedby="error-brand">
+									<small id="error-brand" class="form-text red-text" th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"></small>
+								</div>
+
+								<div class="form-group">
+									<label for="txtProductModel">Product Model</label>
+									<input th:field="*{model}" type="text" class="form-control" id="txtProductModel" placeholder="Enter product model..." aria-describedby="error-model">
+									<small id="error-model" class="form-text red-text" th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></small>
 								</div>
 
 								<div class="form-group">
 									<label for="txtProductQuantity">Product Quantity</label>
-									<input type="number" class="form-control" id="txtProductQuantity" placeholder="Enter product quantity...">
+									<input th:field="*{quantity}" type="number" class="form-control" id="txtProductQuantity" placeholder="Enter product quantity..." aria-describedby="error-quantity">
+									<small id="error-quantity" class="form-text red-text" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></small>
 								</div>
 
 								<div class="form-group">
 									<label for="txtProductPrice">Product Price (PHP)</label>
-									<input type="text" class="form-control" id="txtProductPrice" placeholder="Enter product price...">
+									<input th:field="*{price}" type="text" class="form-control" id="txtProductPrice" placeholder="Enter product price..." aria-describedby="error-price">
+									<small id="error-price" class="form-text red-text" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></small>
 								</div>
 
 								<div class="form-group">
-									<label for="cmbProductType">Product Type</label>
-									<select class="form-control" id="cmbProductType">
-										<option disabled selected>----CHOOSE PRODUCT TYPE----</option>
+									<label for="cmbDiscountType">Discount Type</label>
+									<select class="form-control" id="cmbDiscountType" th:field="*{discountType}" aria-describedby="error-discountType">
 										<option th:value="DISCOUNTABLE">DISCOUNTABLE</option>
 										<option th:value="NON_DISCOUNTABLE">NON_DISCOUNTABLE</option>
 									</select>
+									<small id="error-discountType" class="form-text red-text" th:if="${#fields.hasErrors('discountType')}" th:errors="*{discountType}"></small>
 								</div>
 
 								<div class="form-group">
 									<label for="cmbDiscountPercentage">Discount Percentage</label>
-									<select class="form-control" id="cmbDiscountPercentage">
-										<option disabled selected>----CHOOSE DISCOUNT PERCENTAGE----</option>
+									<select class="form-control" id="cmbDiscountPercentage" th:field="*{discount.discountValue}" aria-describedby="error-discountPercentage">
 										<option th:value="25">25%</option>
 										<option th:value="50">50%</option>
 										<option th:value="75">75%</option>
 										<option th:value="100">100%</option>
 									</select>
+									<small id="error-discountPercentage" class="form-text red-text" th:if="${#fields.hasErrors('discount.discountValue')}" th:errors="*{discount.discountValue}"></small>
 								</div>
 
-								<button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Submit</button>
+								<div class="form-group">
+									<label for="cmbRequiredCredits">Required credits</label>
+									<input th:field="*{discount.requiredCredits.creditValue}" type="number" class="form-control" id="cmbRequiredCredits" placeholder="Enter required credits..." aria-describedby="error-creditValue">
+									<small id="error-creditValue" class="form-text red-text" th:if="${#fields.hasErrors('discount.requiredCredits.creditValue')}" th:errors="*{discount.requiredCredits.creditValue}"></small>
+								</div>
+
+								<button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Save Product</button>
 							</form>
 						</div>
 					</div>

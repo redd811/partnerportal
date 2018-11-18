@@ -1,5 +1,9 @@
 package com.codebytes.partnerportal.common.domain.partner;
 
+<<<<<<< HEAD
+=======
+import com.codebytes.partnerportal.common.validator.ValidPassword;
+>>>>>>> 18ec95b688436782101151245de149515131004e
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
